@@ -12,24 +12,10 @@ Este conversor de moneda permite a los usuarios convertir entre diferentes moned
 conversor de moneda/
 ├── src/
 │   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── tuusuario/
-│   │   │           └── currencyconverter/
-│   │   │               ├── model/
-│   │   │               ├── service/
-│   │   │               ├── controller/
-│   │   │               └── util/
-│   │   └── resources/
-│   │       └── application.properties
-│   ├── test/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── tuusuario/
-│   │   │           └── currencyconverter/
-│   │   │               └── service/
-│   │   └── resources/
-├── .gitignore
-├── README.md
-├── pom.xml (o build.gradle)
-└── LICENSE
+│   │   ├── ConsultaAPI
+|   |   |---GeneradorDeArchivos
+|   |   |---Moneda
+|   |   |---Principal
+│   │   └── etc......
+|   |__etc....
+│__etc...
