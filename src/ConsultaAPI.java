@@ -6,8 +6,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConsultaAPI {
+    String apikey = ApiKey.getApiKey();
     public Moneda buscaMoneda(String sigla, String sigla2) {
-        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/e30e18b0bce9c1daf22475ae/pair/" + sigla + "/" + sigla2);
+        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/" + apikey + "/pair/" + sigla + "/" + sigla2);
         System.out.println(direccion);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
