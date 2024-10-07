@@ -5,10 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class GeneradorDeArchivo {
-    public void guardarJson(Moneda moneda) throws IOException {
+    public void guardarJson(MonedaOmdb monedaOmdb) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (FileWriter escritura = new FileWriter(moneda.base_code() + ".json")) {
-            escritura.write(gson.toJson(moneda));
+        try (FileWriter escritura = new FileWriter(monedaOmdb.base_code() + ".json")) {
+            escritura.write(gson.toJson(monedaOmdb));
         } catch (IOException e) {
             System.out.println("Error al guardar el archivo JSON: " + e.getMessage());
             throw e;
