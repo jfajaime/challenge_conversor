@@ -1,3 +1,5 @@
+package com.alura.fer.modelo;
+
 ;
 
 public record MonedaOmdb(String base_code,

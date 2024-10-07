@@ -1,3 +1,6 @@
+package com.alura.fer.servicio;
+
+import com.alura.fer.modelo.MonedaOmdb;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

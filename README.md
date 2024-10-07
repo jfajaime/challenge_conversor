@@ -1,6 +1,6 @@
 # 💱 Conversor de Monedas
 
-¡Bienvenido a Conversor de MonedaOmdb! Este proyecto es una aplicación en Java que consume una API para convertir monedas y devuelve los resultados en formato JSON.
+¡Bienvenido a Conversor de com.alura.fer.modelo.MonedaOmdb! Este proyecto es una aplicación en Java que consume una API para convertir monedas y devuelve los resultados en formato JSON.
 
 ## 📋 Descripción
 
@@ -12,10 +12,10 @@ Este conversor de monedaOmdb permite a los usuarios convertir entre diferentes m
 conversor de monedaOmdb/
 ├── src/
 │   ├── main/
-│   │   ├── ConsultaAPI
+│   │   ├── com.alura.fer.api.ConsultaAPI
 |   |   |---GeneradorDeArchivos
-|   |   |---MonedaOmdb
-|   |   |---Principal
+|   |   |---com.alura.fer.modelo.MonedaOmdb
+|   |   |---com.alura.fer.Principal
 │   │   └── etc......
 |   |__etc....
 │__etc...

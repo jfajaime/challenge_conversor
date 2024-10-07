@@ -1,3 +1,5 @@
+package com.alura.fer.modelo;
+
 public class Moneda {
     private String monedaBase;
     private String monedaObjetivo;
@@ -17,7 +19,7 @@ public class Moneda {
 
     @Override
     public String toString() {
-        return "Moneda{" +
+        return "com.alura.fer.modelo.Moneda{" +
                 "monedaBase='" + monedaBase + '\'' +
                 ", monedaObjetivo='" + monedaObjetivo + '\'' +
                 ", conversion=" + conversion +

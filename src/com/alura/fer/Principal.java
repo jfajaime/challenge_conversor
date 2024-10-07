@@ -1,3 +1,9 @@
+package com.alura.fer;
+
+import com.alura.fer.api.ConsultaAPI;
+import com.alura.fer.modelo.MonedaOmdb;
+import com.alura.fer.servicio.GeneradorDeArchivo;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -6,7 +12,7 @@ public class Principal {
         Scanner teclado = new Scanner(System.in);
 
         ConsultaAPI consulta = new ConsultaAPI();
-        System.out.println("Bienvenidos al Conversor De Moneda!");
+        System.out.println("Bienvenidos al Conversor de Moneda!");
 
         //agregar : las opciones que tiene el usuario si quiere ver elvalor base de una moneda convertida
         // a todas las que la api le devuelva o como esta actualmente devolviendo una sola conversion

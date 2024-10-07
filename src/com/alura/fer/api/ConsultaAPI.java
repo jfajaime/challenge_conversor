@@ -1,3 +1,7 @@
+package com.alura.fer.api;
+
+import com.alura.fer.modelo.Moneda;
+import com.alura.fer.modelo.MonedaOmdb;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -11,7 +15,7 @@ public class ConsultaAPI {
 
     public MonedaOmdb buscaMoneda(String sigla, String sigla2) {
         URI direccion = URI.create("https://v6.exchangerate-api.com/v6/" + apikey + "/pair/" + sigla + "/" + sigla2);
-        System.out.println(direccion);
+//        System.out.println(direccion);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(direccion)
@@ -32,10 +36,10 @@ public class ConsultaAPI {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
             MonedaOmdb monedaOmdb = gson.fromJson(json, MonedaOmdb.class);
-            System.out.println("6" + monedaOmdb);
+//            System.out.println("6" + monedaOmdb);
 
             Moneda moneda = new Moneda(monedaOmdb);
-            System.out.println("5" + moneda);
+//            System.out.println("5" + moneda);
 
             return new Gson().fromJson(response.body(), MonedaOmdb.class);
         } catch (Exception e) {
