@@ -1,21 +1,25 @@
-# 💱 Conversor de Monedas
+# Conversor de Monedas 💱
 
-¡Bienvenido a Conversor de com.alura.fer.modelo.MonedaOmdb! Este proyecto es una aplicación en Java que consume una API para convertir monedas y devuelve los resultados en formato JSON.
+## Descripción del Proyecto 📄
+Este proyecto es una aplicación de conversión de monedas que utiliza una API para obtener las tasas de cambio actuales. La aplicación está desarrollada en Java y utiliza IntelliJ IDEA como entorno de desarrollo.
 
-## 📋 Descripción
-
-Este conversor de monedaOmdb permite a los usuarios convertir entre diferentes monedas utilizando tasas de cambio actualizadas desde una API externa.
-
-## 🛠️ Estructura del Proyecto
-
+## Estructura del Proyecto 📂
 ```plaintext
-conversor de monedaOmdb/
-├── src/
-│   ├── main/
-│   │   ├── com.alura.fer.api.ConsultaAPI
-|   |   |---GeneradorDeArchivos
-|   |   |---com.alura.fer.modelo.MonedaOmdb
-|   |   |---com.alura.fer.Principal
-│   │   └── etc......
-|   |__etc....
-│__etc...
+├── README.md
+├── src
+│   ├── com
+│   │   ├── alura
+│   │   │   ├── fer
+│   │   │   │   ├── Principal.java
+│   │   │   │   ├── PrincipalConMenu.java
+│   │   │   ├── api
+│   │   │   │   ├── ApiKey.java
+│   │   │   │   ├── ConsultaAPI.java
+│   │   │   ├── modelo
+│   │   │   │   ├── Moneda.java
+│   │   │   │   ├── MonedaOmdb.java
+│   │   │   ├── servicio
+│   │   │   │   ├── GeneradorDeArchivo.java
+│   │   │   │   ├── ListaSiglaDeMonedas.java
+
+    
