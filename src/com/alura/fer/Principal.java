@@ -9,18 +9,15 @@ import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-
-        ConsultaAPI consulta = new ConsultaAPI();
-        System.out.println("Bienvenidos al Conversor de Moneda!");
 
         //agregar : las opciones que tiene el usuario si quiere ver elvalor base de una moneda convertida
         // a todas las que la api le devuelva o como esta actualmente devolviendo una sola conversion
 
 
-        System.out.println("Ingrese la sigla de la moneda Base:");
-
-        try {
+        try (Scanner teclado = new Scanner(System.in)) {
+            ConsultaAPI consulta = new ConsultaAPI();
+            System.out.println("Bienvenidos al Conversor de Moneda!");
+            System.out.println("Ingrese la sigla de la moneda Base:");
             String sigla = teclado.nextLine();
             System.out.println("Ingrese la sigla de la moneda que desea convertir:");
             String sigla2 = teclado.nextLine();
@@ -35,8 +32,6 @@ public class Principal {
         } catch (RuntimeException e) {
             System.out.println("Error: " + e.getMessage());
             System.out.println("Finalizando la aplicación!");
-        } finally {
-            teclado.close();
         }
     }
 }

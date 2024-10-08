@@ -4,7 +4,7 @@ public class ListaSiglaDeMonedas {
     public void mostrarLista() {
         System.out.println("""
                 País-------Código de moneda
-                
+                                
                 Emiratos Árabes Unidos	DEA
                 Afganistán	AFN
                 Albania	TODO

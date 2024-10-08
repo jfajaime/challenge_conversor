@@ -10,7 +10,8 @@ public class Moneda {
         this.monedaObjetivo = monedaObjetivo;
         this.conversion = conversion;
     }
-    public Moneda(MonedaOmdb monedaOmdb){
+
+    public Moneda(MonedaOmdb monedaOmdb) {
         this.monedaBase = monedaOmdb.base_code();
         this.monedaObjetivo = monedaOmdb.target_code();
         this.conversion = Double.parseDouble(monedaOmdb.conversion_rate());
@@ -47,6 +48,6 @@ public class Moneda {
     }
 
     public void setConversion(double conversion) {
-        this.conversion =  conversion;
+        this.conversion = conversion;
     }
 }

@@ -4,6 +4,8 @@ import com.alura.fer.api.ConsultaAPI;
 import com.alura.fer.modelo.MonedaOmdb;
 import com.alura.fer.servicio.ListaSiglaDeMonedas;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class PrincipalConMenu {
@@ -22,7 +24,8 @@ public class PrincipalConMenu {
             ConsultaAPI consulta = new ConsultaAPI();
             switch (opcion) {
                 case "1":
-                    realizarConversion(teclado, consulta, "usd", "ars", "dólares", "pesos Argentinos");
+                    realizarConversion(teclado, consulta, "usd", "ars"
+                            , "dólares", "pesos Argentinos");
                     break;
                 case "2":
                     realizarConversion(teclado, consulta, "ars", "usd"
@@ -93,10 +96,15 @@ public class PrincipalConMenu {
 
     private static void realizarConversion(Scanner teclado, ConsultaAPI consulta, String monedaOrigen, String monedaDestino, String nombreOrigen, String nombreDestino) {
         System.out.printf("Ingrese la cantidad de %s que desea convertir! >", nombreOrigen);
+
         double cantidad = teclado.nextDouble();
-        teclado.nextLine(); // Consumir el carácter de nueva línea
+        teclado.nextLine(); // Consumir el carácter de nueva línea para no generar dos veces seguidos el menu
+
         MonedaOmdb monedaOmdb = consulta.buscaMoneda(monedaOrigen, monedaDestino);
-        Double conversion = Double.valueOf(monedaOmdb.conversion_rate().toString());
-        System.out.printf("Cantidad en %s es > %.2f%n", nombreDestino, conversion * cantidad);
+        Double conversion = Double.valueOf(monedaOmdb.conversion_rate());
+        NumberFormat nM = NumberFormat.getNumberInstance(Locale.GERMANY);//formato de salida
+        String cantidadFormatear = nM.format(conversion * cantidad);
+//        System.out.printf("Cantidad en %s es > %.2f%n", nombreDestino, conversion * cantidad);
+        System.out.printf("Cantidad en %s es >$ %s%n", nombreDestino, cantidadFormatear); //mejor formato de miles
     }
 }
