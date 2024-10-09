@@ -79,7 +79,7 @@ public class PrincipalConMenu {
                 5. Dólar => Peso Mexicano
                 6. Peso Mexicano => Dólar
                 7. Lista completa de las monedas admitidas para conversion!
-                8. Elije entre las 160 monedas disponible! de tu preferencia
+                8. Elije entre las 160 monedas de tu preferencia disponible!
                 ***********************************************************
                 """);
     }
