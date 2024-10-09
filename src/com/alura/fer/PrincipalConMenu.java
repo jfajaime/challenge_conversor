@@ -2,8 +2,10 @@ package com.alura.fer;
 
 import com.alura.fer.api.ConsultaAPI;
 import com.alura.fer.modelo.MonedaOmdb;
+import com.alura.fer.servicio.GeneradorDeArchivo;
 import com.alura.fer.servicio.ListaSiglaDeMonedas;
 
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
@@ -48,24 +50,15 @@ public class PrincipalConMenu {
                             , "pesos Mexicanos", "dólares");
                     break;
                 case "7":
-                    realizarConversion(teclado, consulta, "usd", "cop"
-                            , "dólares", "pesos Colombianos");
-                    break;
-                case "8":
-                    realizarConversion(teclado, consulta, "cop", "usd"
-                            , "pesos Colombianos", "dólares");
-                    break;
-                case "9":
-                    realizarConversion(teclado, consulta, "usd", "pen"
-                            , "dólares", "soles Peruanos");
-                    break;
-                case "10":
-                    realizarConversion(teclado, consulta, "pen", "usd"
-                            , "soles Peruanos", "dólares");
-                    break;
-                case "11":
                     ListaSiglaDeMonedas lista = new ListaSiglaDeMonedas();
                     lista.mostrarLista();
+                    break;case "8":
+                    System.out.println("Ingrese la sigla de la moneda Base:");
+                    String sigla = teclado.nextLine();
+                    System.out.println("Ingrese la sigla de la moneda que desea convertir:");
+                    String sigla2 = teclado.nextLine();
+                    realizarConversion(teclado, consulta, sigla, sigla2
+                            , sigla, sigla2);
                     break;
                 default:
                     System.out.println("Opción no válida. Por favor, intente de nuevo.");
@@ -85,11 +78,8 @@ public class PrincipalConMenu {
                 4. Real Brasileño => Dólar
                 5. Dólar => Peso Mexicano
                 6. Peso Mexicano => Dólar
-                7. Dólar => Peso Colombiano
-                8. Peso Colombiano => Dólar
-                9. Dólar => Sol Peruano
-                10. Sol Peruano => Dólar
-                11. Lista completa de las monedas admitidas para conversion!
+                7. Lista completa de las monedas admitidas para conversion!
+                8. Elije entre las 160 monedas disponible! de tu preferencia
                 ***********************************************************
                 """);
     }
@@ -101,6 +91,12 @@ public class PrincipalConMenu {
         teclado.nextLine(); // Consumir el carácter de nueva línea para no generar dos veces seguidos el menu
 
         MonedaOmdb monedaOmdb = consulta.buscaMoneda(monedaOrigen, monedaDestino);
+        GeneradorDeArchivo generador = new GeneradorDeArchivo();
+        try {
+            generador.guardarJson(monedaOmdb);
+        } catch (IOException e) {
+        System.out.println(" No se pudo gurdar el archivo .json " + e.getMessage());
+        }
         Double conversion = Double.valueOf(monedaOmdb.conversion_rate());
         NumberFormat nM = NumberFormat.getNumberInstance(Locale.GERMANY);//formato de salida
         String cantidadFormatear = nM.format(conversion * cantidad);
