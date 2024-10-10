@@ -44,7 +44,7 @@ etc..........
 ## Cómo Ejecutar el Proyecto ▶️
 1. Abre el proyecto en IntelliJ IDEA.
 2. Configura tu clave de API en `src/com/alura/fer/api/ApiKey.java`.
-3. Ejecuta la clase `Principal.java` para iniciar la aplicación.
+3. Ejecuta la clase `PrincipalConMenu.java` para iniciar la aplicación.
 
 ## Contribuciones 🤝
 ¡Las contribuciones son bienvenidas! Si deseas contribuir, por favor, sigue estos pasos:
