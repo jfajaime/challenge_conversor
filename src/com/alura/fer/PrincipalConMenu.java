@@ -4,14 +4,19 @@ import com.alura.fer.api.ConsultaAPI;
 import com.alura.fer.modelo.MonedaOmdb;
 import com.alura.fer.servicio.GeneradorDeArchivo;
 import com.alura.fer.servicio.ListaSiglaDeMonedas;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class PrincipalConMenu {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Scanner teclado = new Scanner(System.in);
 
@@ -84,15 +89,19 @@ public class PrincipalConMenu {
                 """);
     }
 
-    private static void realizarConversion(Scanner teclado, ConsultaAPI consulta, String monedaOrigen, String monedaDestino, String nombreOrigen, String nombreDestino) {
+    static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    static List<MonedaOmdb> lista1 = new ArrayList<>();
+    private static void realizarConversion(Scanner teclado, ConsultaAPI consulta, String monedaOrigen, String monedaDestino, String nombreOrigen, String nombreDestino) throws IOException {
         System.out.printf("Ingrese la cantidad de %s que desea convertir! >", nombreOrigen);
 
         double cantidad = teclado.nextDouble();
         teclado.nextLine(); // Consumir el carácter de nueva línea para no generar dos veces seguidos el menu
 
         MonedaOmdb monedaOmdb = consulta.buscaMoneda(monedaOrigen, monedaDestino);
+
         GeneradorDeArchivo generador = new GeneradorDeArchivo();
         try {
+            lista1.add(monedaOmdb);
             generador.guardarJson(monedaOmdb);
         } catch (IOException e) {
         System.out.println(" No se pudo gurdar el archivo .json " + e.getMessage());
@@ -100,7 +109,9 @@ public class PrincipalConMenu {
         Double conversion = Double.valueOf(monedaOmdb.conversion_rate());
         NumberFormat nM = NumberFormat.getNumberInstance(Locale.GERMANY);//formato de salida
         String cantidadFormatear = nM.format(conversion * cantidad);
-//        System.out.printf("Cantidad en %s es > %.2f%n", nombreDestino, conversion * cantidad);
         System.out.printf("Cantidad en %s es >$ %s%n", nombreDestino, cantidadFormatear); //mejor formato de miles
+        FileWriter escritura = new FileWriter("Historial.json");
+        escritura.write(gson.toJson(lista1));
+        escritura.close();
     }
 }

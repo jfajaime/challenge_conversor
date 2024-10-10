@@ -20,11 +20,9 @@ public class Moneda {
 
     @Override
     public String toString() {
-        return "com.alura.fer.modelo.Moneda{" +
-                "monedaBase='" + monedaBase + '\'' +
-                ", monedaObjetivo='" + monedaObjetivo + '\'' +
-                ", conversion=" + conversion +
-                '}';
+        return  "(monedaBase='" + monedaBase +
+                ", monedaObjetivo='" + monedaObjetivo +
+                ", conversion=" + conversion +")";
     }
 
     public String getMonedaBase() {
